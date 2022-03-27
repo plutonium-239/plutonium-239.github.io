@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>pu239</title><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Blockquotes | pu239</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="Blockquotes" />
+<meta name="author" content="Samarth Bhatia" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Various ways to use blockquotes" />
+<meta property="og:description" content="Various ways to use blockquotes" />
+<link rel="canonical" href="http://localhost:4000/docs/blockquotes/" />
+<meta property="og:url" content="http://localhost:4000/docs/blockquotes/" />
+<meta property="og:site_name" content="pu239" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-07-10T20:30:00+05:30" />
+<meta name="google-site-verification" content="uubLfpcORmDWkM8pI-yKODVVZD3VSpUYFSwkQJcOuZE" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Samarth Bhatia"},"@type":"BlogPosting","headline":"Blockquotes","dateModified":"2017-07-10T20:30:00+05:30","datePublished":"2017-07-10T20:30:00+05:30","description":"Various ways to use blockquotes","url":"http://localhost:4000/docs/blockquotes/","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/docs/blockquotes/"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+
+<body> 
+<!-- NAV -->
+<nav class="navbar navbar-expand-md navbar-light py-xs-2 py-md-4">
+  <div class="container">
+    <a href="/" class="navbar-brand">
+      <h2 class="d-none d-md-inline align-middle pl-3 text-primary">pu239</h2>
+      <h3 class="d-md-none d-inline align-middle pl-3 text-primary">pu239</h3>
+    </a>
+    <button class="navbar-toggler float-right" data-toggle="collapse" data-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a href="/" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="/about/" class="nav-link">About</a>
+        </li>
+        <li class="nav-item">
+          <a href="/archive/" class="nav-link">Archive</a>
+        </li>
+        <li class="nav-item">
+          <a href="/docs/" class="nav-link">Docs</a>
+        </li>
+        <li class="nav-item">
+          <button type="button" class="btn-search nav-link" data-toggle="modal" data-target="#search-modal">
+            <i class=" fas fa-search "></i>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav> 
+<header>
+  <div class="jumbotron mb-0 d-flex align-items-center flex-column justify-content-center text-center min-100 jumbotron-bg"
+    id="header">
+    <div class="display-1">Blockquotes</div><p class="lead">Various ways to use blockquotes</p></div>
+</header> 
+<div id="search-modal" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div id="search-input"></div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div id="search-results" class="container d-none mt-md-3">
+          <ul id="results-container" class="list-group list-group-flush px-0"></ul>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <img src="/assets/images/normal/search-by-algolia.png" alt="Search by Algolia" width="120" height="17">
+      </div>
+    </div>
+  </div>
+</div>
+  <section id="doc" class="container pt-3">
+  <div class="row">
+    <div class="col"><article>
+        <h1 id="using-blockquotes">Using Blockquotes</h1>
+
+<p><img src="https://78.media.tumblr.com/5c0975c6250ea70ccdf49a5a8be52f6f/tumblr_ogd7loM82j1slwmbvo1_500.gif" alt="violent-delights" class="rounded" /></p>
+
+<h2 id="with-markdown">With Markdown</h2>
+
+<p>The easiest way to create a blockquote in markdown is with the <code class="language-plaintext highlighter-rouge">&gt;</code> character at the front of your sentance.</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gt">&gt; Hey! Check me out; I'm a blockquote.</span>
+</code></pre></div></div>
+
+<p>And you’ll get something like this:</p>
+
+<blockquote>
+  <p>Hey! Check me out; I’m a blockquote.</p>
+</blockquote>
+
+<p>Nothing fancy, except for some styling on top of Bootstrap’s <code class="language-plaintext highlighter-rouge">.blockquote</code> class, but it works.</p>
+
+<h2 id="with-in-line-html">With In-line HTML</h2>
+
+<p>Another way to create a blockquote is using in-line HTML. Though this is generally frowned upon in Markdown, it gives you the ability to add even more CSS classes and HTML elements to give you something like this:</p>
+
+<p>This is a blockquote with inline HTML using Bootstrap footer and cite classes:</p>
+
+<blockquote class="blockquote">
+  <p class="mb-0">"Just because you are a character doesn't mean that you have character."</p>
+  <footer class="blockquote-footer">The Wolf in <cite title="Source Title">Pulp Fiction</cite></footer>
+</blockquote>
+
+<p>You would write the HTML in your markdown file like this:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;blockquote</span> <span class="na">class=</span><span class="s">"blockquote"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"mb-0"</span><span class="nt">&gt;</span>Just because you are a character doesn't mean that you have character.<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;footer</span> <span class="na">class=</span><span class="s">"blockquote-footer"</span><span class="nt">&gt;</span>The Wolf in <span class="nt">&lt;cite</span> <span class="na">title=</span><span class="s">"Source Title"</span><span class="nt">&gt;</span>Pulp Fiction<span class="nt">&lt;/cite&gt;&lt;/footer&gt;</span>
+<span class="nt">&lt;/blockquote&gt;</span>
+</code></pre></div></div>
+
+<p>While that looks nice, it’s a bit much to write everytime you want to quote someone, right?</p>
+
+<h2 id="using-a-liquid-tag-and-front-matter">Using a Liquid tag and Front Matter</h2>
+
+<p>I’ve written an include file in <code class="language-plaintext highlighter-rouge">_includes/blockquote.html</code> that allows you to do this:</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% include blockquote.html %}
+</code></pre></div></div>
+
+<p>… and you get this</p>
+
+<blockquote class="blockquote">
+  <p class="mb-0">These violent delights have violent ends.</p><footer class="blockquote-footer">William Shakespeare, 
+    <cite title="Source Title">Romeo and Juliet</cite>
+  </footer></blockquote>
+
+<p>The trick here is to add the quote information to your <em>front matter</em> like this:</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s">Blockquotes</span>
+<span class="na">description</span><span class="pi">:</span> <span class="s">Various ways to use blockquotes</span>
+<span class="na">category</span><span class="pi">:</span> <span class="s">Sample</span>
+<span class="na">image</span><span class="pi">:</span> <span class="s">http://www.bestsayingsquotes.com/files/famous-quotes-on-lnowledge-2dd2f90c.jpg</span>
+<span class="na">quote</span><span class="pi">:</span> <span class="s">These violent delights have violent ends.</span>
+<span class="na">quote-author</span><span class="pi">:</span> <span class="s">William Shakespeare</span>
+<span class="na">quote-source</span><span class="pi">:</span> <span class="s">Romeo and Juliet</span>
+<span class="nn">---</span>
+</code></pre></div></div>
+
+<p>The Liquid logic in the <code class="language-plaintext highlighter-rouge">_includes/blockquote.html</code> file takes the variables in your <em>front matter</em> and uses them to build the quote. It also allows you to omit the <code class="language-plaintext highlighter-rouge">quote-source</code> and/or the <code class="language-plaintext highlighter-rouge">quote-author</code> and still get a properly formatted quote.</p>
+
+<p>You’ll also get a message if you put the <code class="language-plaintext highlighter-rouge">block-quote</code> include in your markdown, but forgot to add the <code class="language-plaintext highlighter-rouge">quote</code> variable in the <em>front matter</em>.</p>
+
+<p>Here’s the code:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{%- if page.quote -%}
+<span class="nt">&lt;blockquote</span> <span class="na">class=</span><span class="s">"blockquote"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"mb-0"</span><span class="nt">&gt;</span>{{ page.quote }}<span class="nt">&lt;/p&gt;</span>
+  {%- if page.quote-author and page.quote-source -%}
+  <span class="nt">&lt;footer</span> <span class="na">class=</span><span class="s">"blockquote-footer"</span><span class="nt">&gt;</span>{{ page.quote-author }},
+    <span class="nt">&lt;cite</span> <span class="na">title=</span><span class="s">"Source Title"</span><span class="nt">&gt;</span>{{ page.quote-source }}<span class="nt">&lt;/cite&gt;</span>
+  <span class="nt">&lt;/footer&gt;</span>
+  {%- elsif page.quote-author and !page.quote-source -%}
+  <span class="nt">&lt;footer</span> <span class="na">class=</span><span class="s">"blockquote-footer"</span><span class="nt">&gt;</span>{{ page.quote-author }}
+  <span class="nt">&lt;/footer&gt;</span>
+  {%- endif -%}
+<span class="nt">&lt;/blockquote&gt;</span>
+{%- else -%}
+<span class="nt">&lt;blockquote</span> <span class="na">class=</span><span class="s">"blockquote"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"mb-0"</span><span class="nt">&gt;</span>Check your front matter for quote variables!<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/blockquote&gt;</span>
+{%- endif -%}
+</code></pre></div></div>
+
+<p>Enjoy!</p>
+
+      </article>
+    </div>
+  </div>
+</section>
+<footer class="py-3 bg-light">
+  <div class="container">
+    <div class="row footer align-items-center">
+      <div class="col-xssm-6 text-muted text-center d-xssm-none">
+        &copy; abts.io 2021
+      </div>
+      <div class="col-xssm-6 text-muted d-none d-xssm-block">
+        &copy; abts.io 2021
+      </div>
+      <div class="col-xssm-6 text-center d-xssm-none">
+         <div class="social-links">
+  <a target="_blank" href="https://github.com/Plutonium-239" title="Github">
+    <i class="fab fa-github"></i>
+  </a>
+  <a href="mailto:ch1190124@iitd.ac.in" title="email">
+    <i class="fas fa-envelope-square"></i>
+  </a>
+  <a target="_blank" href="https://facebook.com/" title="Facebook">
+    <i class="fab fa-facebook"></i>
+  </a>
+  <!-- <a target="_blank" href="https://plus.google.com/" title="Google Plus">
+    <i class="fab fa-google-plus"></i>
+  </a> -->
+  <a target="_blank" href="https://linkedin.com/in/kimaford" title="LinkedIn">
+    <i class="fab fa-linkedin"></i>
+  </a>
+  <!-- <a target="_blank" href="https://twitter.com/" title="Twitter">
+    <i class="fab fa-twitter"></i>
+  </a>
+  <a target="_blank" href="https://slack.com/" title="Slack">
+    <i class="fab fa-slack"></i>
+  </a> -->
+</div> 
+      </div>
+      <div class="col-xssm-6 text-right d-none d-xssm-block">
+         <div class="social-links">
+  <a target="_blank" href="https://github.com/Plutonium-239" title="Github">
+    <i class="fab fa-github"></i>
+  </a>
+  <a href="mailto:ch1190124@iitd.ac.in" title="email">
+    <i class="fas fa-envelope-square"></i>
+  </a>
+  <a target="_blank" href="https://facebook.com/" title="Facebook">
+    <i class="fab fa-facebook"></i>
+  </a>
+  <!-- <a target="_blank" href="https://plus.google.com/" title="Google Plus">
+    <i class="fab fa-google-plus"></i>
+  </a> -->
+  <a target="_blank" href="https://linkedin.com/in/kimaford" title="LinkedIn">
+    <i class="fab fa-linkedin"></i>
+  </a>
+  <!-- <a target="_blank" href="https://twitter.com/" title="Twitter">
+    <i class="fab fa-twitter"></i>
+  </a>
+  <a target="_blank" href="https://slack.com/" title="Slack">
+    <i class="fab fa-slack"></i>
+  </a> -->
+</div> 
+      </div>
+      <div class="col-6 text-right">
+         <div class="social-links">
+  <a target="_blank" href="https://github.com/Plutonium-239" title="Github">
+    <i class="fab fa-github"></i>
+  </a>
+  <a href="mailto:ch1190124@iitd.ac.in" title="email">
+    <i class="fas fa-envelope-square"></i>
+  </a>
+  <a target="_blank" href="https://facebook.com/" title="Facebook">
+    <i class="fab fa-facebook"></i>
+  </a>
+  <!-- <a target="_blank" href="https://plus.google.com/" title="Google Plus">
+    <i class="fab fa-google-plus"></i>
+  </a> -->
+  <a target="_blank" href="https://linkedin.com/in/kimaford" title="LinkedIn">
+    <i class="fab fa-linkedin"></i>
+  </a>
+  <!-- <a target="_blank" href="https://twitter.com/" title="Twitter">
+    <i class="fab fa-twitter"></i>
+  </a>
+  <a target="_blank" href="https://slack.com/" title="Slack">
+    <i class="fab fa-slack"></i>
+  </a> -->
+</div> 
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- scripts -->
+<script src="/assets/js/main.min.js"></script>
+</body>
+
+</html>

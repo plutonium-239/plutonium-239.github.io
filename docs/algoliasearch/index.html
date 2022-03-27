@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>pu239</title><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Algolia Search | pu239</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="Algolia Search" />
+<meta name="author" content="Samarth Bhatia" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="How to Setup Algolia Search" />
+<meta property="og:description" content="How to Setup Algolia Search" />
+<link rel="canonical" href="http://localhost:4000/docs/algoliasearch/" />
+<meta property="og:url" content="http://localhost:4000/docs/algoliasearch/" />
+<meta property="og:site_name" content="pu239" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-07-10T20:30:00+05:30" />
+<meta name="google-site-verification" content="uubLfpcORmDWkM8pI-yKODVVZD3VSpUYFSwkQJcOuZE" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Samarth Bhatia"},"@type":"BlogPosting","headline":"Algolia Search","dateModified":"2017-07-10T20:30:00+05:30","datePublished":"2017-07-10T20:30:00+05:30","description":"How to Setup Algolia Search","url":"http://localhost:4000/docs/algoliasearch/","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/docs/algoliasearch/"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+
+<body> 
+<!-- NAV -->
+<nav class="navbar navbar-expand-md navbar-light py-xs-2 py-md-4">
+  <div class="container">
+    <a href="/" class="navbar-brand">
+      <h2 class="d-none d-md-inline align-middle pl-3 text-primary">pu239</h2>
+      <h3 class="d-md-none d-inline align-middle pl-3 text-primary">pu239</h3>
+    </a>
+    <button class="navbar-toggler float-right" data-toggle="collapse" data-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a href="/" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="/about/" class="nav-link">About</a>
+        </li>
+        <li class="nav-item">
+          <a href="/archive/" class="nav-link">Archive</a>
+        </li>
+        <li class="nav-item">
+          <a href="/docs/" class="nav-link">Docs</a>
+        </li>
+        <li class="nav-item">
+          <button type="button" class="btn-search nav-link" data-toggle="modal" data-target="#search-modal">
+            <i class=" fas fa-search "></i>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav> 
+<header>
+  <div class="jumbotron mb-0 d-flex align-items-center flex-column justify-content-center text-center min-100 jumbotron-bg"
+    id="header">
+    <div class="display-1">Algolia Search</div><p class="lead">How to Setup Algolia Search</p></div>
+</header> 
+<div id="search-modal" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div id="search-input"></div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div id="search-results" class="container d-none mt-md-3">
+          <ul id="results-container" class="list-group list-group-flush px-0"></ul>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <img src="/assets/images/normal/search-by-algolia.png" alt="Search by Algolia" width="120" height="17">
+      </div>
+    </div>
+  </div>
+</div>
+  <section id="doc" class="container pt-3">
+  <div class="row">
+    <div class="col"><article>
+        <h1 id="algolia-search">Algolia Search</h1>
+
+<p><a href="https://www.algolia.com/">Algolia</a> is the latest/greatest tool for adding search functionality to websites.</p>
+
+<p>Jekyll has been historically remiss in having search capabilities, so I felt the need to add some in.</p>
+
+<p>There are other ways to do this, namely via either a home-grown instant search that relies on a local JSON file; or with Lunr, which is okay, but not as good as Algolia. I’ve tried both, and Algolia, it is.</p>
+
+<p>Now, I’ve already done most of the grunt-work getting this setup, so the following is what you need to do to get it working for yourself.</p>
+
+<ol>
+  <li>Head on over to <a href="https://www.algolia.com/">Algolia</a> and setup an account. The Community (free) plan is free, as long as you display the proper Algolia branding in the rights spots, which I do already in the template.</li>
+  <li>Create an index on Algolia that you’re going to use on your own site. Remember it for step 4.</li>
+  <li>Go to API Keys on Algolia and write down the <code class="language-plaintext highlighter-rouge">Application ID</code> and the <code class="language-plaintext highlighter-rouge">Search-Only API Key</code> for use in the next step</li>
+  <li>Open the <code class="language-plaintext highlighter-rouge">config.yml</code> file in the root of the sakura theme, and edit per the below:</li>
+</ol>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Algolia Search</span>
+<span class="na">algolia</span><span class="pi">:</span>
+  <span class="na">application_id</span><span class="pi">:</span> <span class="s">changeme</span> <span class="c1"># Use your (not mine and non-admin) search only api key here</span>
+  <span class="na">index_name</span><span class="pi">:</span> <span class="s">changeme</span> <span class="c1"># Use the index you created on Algolia (from step 2 above)</span>
+</code></pre></div></div>
+
+<p>Now this is where it might get a bit hairy, because I’ve got no way to know how you’ve got things setup on your local machine with regard to <code class="language-plaintext highlighter-rouge">environment variables</code>. That said, here’s what I do:</p>
+
+<ol>
+  <li>Edit your <code class="language-plaintext highlighter-rouge">.bashrc</code> file or <code class="language-plaintext highlighter-rouge">.bash_profile</code>, depending on your setup, and add the following (If you’re on Windows, I’ll need to add other instructions in, as I forget how to do that):</li>
+</ol>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">ALGOLIA_API_KEY</span><span class="o">=</span><span class="s2">"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"</span> &lt;<span class="o">=</span> your <span class="k">*</span>ADMIN<span class="k">*</span> API KEY goes here
+</code></pre></div></div>
+
+<p>Because this is getting setup on your <strong>local</strong> environment, nobody can see this but you <strong>and Gulp</strong> when you run the following command locally:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn index
+</code></pre></div></div>
+
+<p>This will execute the following Gulp task:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">gulp</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span><span class="dl">"</span><span class="s2">build:index-algolia</span><span class="dl">"</span><span class="p">,</span> <span class="nx">cb</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">algolia</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">ALGOLIA_API_KEY</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">shellCommand</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">ALGOLIA_API_KEY=</span><span class="dl">"</span> <span class="o">+</span> <span class="nx">algolia</span> <span class="o">+</span> <span class="dl">"</span><span class="s2"> jekyll algolia</span><span class="dl">"</span><span class="p">;</span>
+
+  <span class="k">return</span> <span class="nx">gulp</span>
+    <span class="p">.</span><span class="nx">src</span><span class="p">(</span><span class="dl">""</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">run</span><span class="p">(</span><span class="nx">shellCommand</span><span class="p">))</span>
+    <span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">,</span> <span class="nx">gutil</span><span class="p">.</span><span class="nx">log</span><span class="p">);</span>
+  <span class="nx">cb</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>This should result in something like the below:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">yarn</span> <span class="nx">run</span> <span class="nx">v1</span><span class="p">.</span><span class="mf">5.1</span>
+<span class="nx">$</span> <span class="nx">gulp</span> <span class="nx">build</span><span class="p">:</span><span class="nx">index</span><span class="o">-</span><span class="nx">algolia</span>
+<span class="p">[</span><span class="mi">01</span><span class="p">:</span><span class="mi">01</span><span class="p">:</span><span class="mi">24</span><span class="p">]</span> <span class="nx">Using</span> <span class="nx">gulpfile</span> <span class="o">~</span><span class="sr">/Sites/</span><span class="nx">workspace</span><span class="o">/</span><span class="nx">sakura</span><span class="o">/</span><span class="nx">gulpfile</span><span class="p">.</span><span class="nx">js</span>
+<span class="p">[</span><span class="mi">01</span><span class="p">:</span><span class="mi">01</span><span class="p">:</span><span class="mi">24</span><span class="p">]</span> <span class="nx">Starting</span> <span class="dl">'</span><span class="s1">build:index-algolia</span><span class="dl">'</span><span class="p">...</span>
+<span class="p">[</span><span class="mi">01</span><span class="p">:</span><span class="mi">01</span><span class="p">:</span><span class="mi">40</span><span class="p">]</span> <span class="nx">Finished</span> <span class="dl">'</span><span class="s1">build:index-algolia</span><span class="dl">'</span> <span class="nx">after</span> <span class="mi">15</span> <span class="nx">s</span>
+<span class="nx">$</span> <span class="nx">ALGOLIA_API_KEY</span><span class="o">=********************************</span> <span class="nx">jekyll</span> <span class="nx">algolia</span> <span class="o">&lt;-</span> <span class="o">!!!</span> <span class="nx">Note</span> <span class="nx">that</span> <span class="nx">your</span> <span class="nx">actual</span> <span class="nx">API</span> <span class="nx">key</span> <span class="nx">gets</span> <span class="nx">exposed</span> <span class="nx">here</span><span class="o">!</span>
+<span class="nx">Configuration</span> <span class="nx">file</span><span class="p">:</span> <span class="o">/</span><span class="nx">somelongpath</span><span class="o">/</span><span class="nx">_config</span><span class="p">.</span><span class="nx">yml</span> <span class="o">&lt;-</span> <span class="nx">your</span> <span class="nx">path</span> <span class="nx">will</span> <span class="nx">look</span> <span class="nx">different</span>
+<span class="nx">Processing</span> <span class="nx">site</span><span class="p">...</span>
+         <span class="nx">AutoPages</span><span class="p">:</span> <span class="nx">Disabled</span><span class="o">/</span><span class="nx">Not</span> <span class="nx">configured</span> <span class="k">in</span> <span class="nx">site</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span>
+        <span class="nx">Pagination</span><span class="p">:</span> <span class="nx">Complete</span><span class="p">,</span> <span class="nx">processed</span> <span class="mi">3</span> <span class="nx">pagination</span> <span class="nx">page</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
+
+<span class="nx">Progress</span><span class="p">:</span> <span class="o">|==============================================================================================================|</span>
+
+<span class="nx">Progress</span><span class="p">:</span> <span class="o">|=======================================================================================================</span><span class="nx">Settings</span> <span class="nx">are</span> <span class="nx">already</span> <span class="nx">up</span> <span class="nx">to</span> <span class="nx">date</span><span class="p">.</span>
+<span class="nx">Getting</span> <span class="nx">list</span> <span class="k">of</span> <span class="nx">existing</span> <span class="nx">records</span>
+<span class="nx">Updating</span> <span class="nx">records</span> <span class="k">in</span> <span class="nx">index</span> <span class="nx">sakura</span><span class="p">...</span>
+<span class="nx">Records</span> <span class="nx">to</span> <span class="k">delete</span><span class="p">:</span> <span class="mi">68</span>
+<span class="nx">Records</span> <span class="nx">to</span> <span class="nx">add</span><span class="p">:</span> <span class="mi">66</span>
+<span class="err">✔</span> <span class="nx">Indexing</span> <span class="nx">complete</span>
+<span class="err">✨</span>  <span class="nx">Done</span> <span class="k">in</span> <span class="mf">33.25</span><span class="nx">s</span><span class="p">.</span>
+</code></pre></div></div>
+
+      </article>
+    </div>
+  </div>
+</section>
+<footer class="py-3 bg-light">
+  <div class="container">
+    <div class="row footer align-items-center">
+      <div class="col-xssm-6 text-muted text-center d-xssm-none">
+        &copy; abts.io 2021
+      </div>
+      <div class="col-xssm-6 text-muted d-none d-xssm-block">
+        &copy; abts.io 2021
+      </div>
+      <div class="col-xssm-6 text-center d-xssm-none">
+         <div class="social-links">
+  <a target="_blank" href="https://github.com/Plutonium-239" title="Github">
+    <i class="fab fa-github"></i>
+  </a>
+  <a href="mailto:ch1190124@iitd.ac.in" title="email">
+    <i class="fas fa-envelope-square"></i>
+  </a>
+  <a target="_blank" href="https://facebook.com/" title="Facebook">
+    <i class="fab fa-facebook"></i>
+  </a>
+  <!-- <a target="_blank" href="https://plus.google.com/" title="Google Plus">
+    <i class="fab fa-google-plus"></i>
+  </a> -->
+  <a target="_blank" href="https://linkedin.com/in/kimaford" title="LinkedIn">
+    <i class="fab fa-linkedin"></i>
+  </a>
+  <!-- <a target="_blank" href="https://twitter.com/" title="Twitter">
+    <i class="fab fa-twitter"></i>
+  </a>
+  <a target="_blank" href="https://slack.com/" title="Slack">
+    <i class="fab fa-slack"></i>
+  </a> -->
+</div> 
+      </div>
+      <div class="col-xssm-6 text-right d-none d-xssm-block">
+         <div class="social-links">
+  <a target="_blank" href="https://github.com/Plutonium-239" title="Github">
+    <i class="fab fa-github"></i>
+  </a>
+  <a href="mailto:ch1190124@iitd.ac.in" title="email">
+    <i class="fas fa-envelope-square"></i>
+  </a>
+  <a target="_blank" href="https://facebook.com/" title="Facebook">
+    <i class="fab fa-facebook"></i>
+  </a>
+  <!-- <a target="_blank" href="https://plus.google.com/" title="Google Plus">
+    <i class="fab fa-google-plus"></i>
+  </a> -->
+  <a target="_blank" href="https://linkedin.com/in/kimaford" title="LinkedIn">
+    <i class="fab fa-linkedin"></i>
+  </a>
+  <!-- <a target="_blank" href="https://twitter.com/" title="Twitter">
+    <i class="fab fa-twitter"></i>
+  </a>
+  <a target="_blank" href="https://slack.com/" title="Slack">
+    <i class="fab fa-slack"></i>
+  </a> -->
+</div> 
+      </div>
+      <div class="col-6 text-right">
+         <div class="social-links">
+  <a target="_blank" href="https://github.com/Plutonium-239" title="Github">
+    <i class="fab fa-github"></i>
+  </a>
+  <a href="mailto:ch1190124@iitd.ac.in" title="email">
+    <i class="fas fa-envelope-square"></i>
+  </a>
+  <a target="_blank" href="https://facebook.com/" title="Facebook">
+    <i class="fab fa-facebook"></i>
+  </a>
+  <!-- <a target="_blank" href="https://plus.google.com/" title="Google Plus">
+    <i class="fab fa-google-plus"></i>
+  </a> -->
+  <a target="_blank" href="https://linkedin.com/in/kimaford" title="LinkedIn">
+    <i class="fab fa-linkedin"></i>
+  </a>
+  <!-- <a target="_blank" href="https://twitter.com/" title="Twitter">
+    <i class="fab fa-twitter"></i>
+  </a>
+  <a target="_blank" href="https://slack.com/" title="Slack">
+    <i class="fab fa-slack"></i>
+  </a> -->
+</div> 
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- scripts -->
+<script src="/assets/js/main.min.js"></script>
+</body>
+
+</html>
