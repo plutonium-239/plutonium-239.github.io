@@ -1,0 +1,53 @@
+baseURL: 'http://example.org/'
+languageCode: en-us
+title: pu239's page
+theme: PaperMod
+menu:
+  main:
+    - identifier: about
+      name: about me
+      url: /about/
+      weight: 1
+    - identifier: publications 
+      name: publications
+      url: /publications/
+      weight: 2
+    - identifier: projects
+      name: projects
+      url: /projects/
+      weight: 3
+
+
+params:
+  defaultTheme: dark
+  ShowBreadCrumbs: true
+  descripion: "All my projects, publications, etc. are listed on this sweet website."
+  # disableAnchoredHeadings: true
+  label:
+    icon: /bmth+av.png
+    iconHeight: 40
+  profileMode:
+    enabled: true
+    title: "Samarth Bhatia's Homepage" # optional default will be site title
+    subtitle: "All my projects, publications, etc. are listed on this sweet website."
+    imageUrl: /bmth+av.png # optional
+    # imageTitle: "<title of image as alt>" # optional
+    imageWidth: 120 # custom size
+    imageHeight: 120 # custom size
+    buttons:
+      - name: about me
+        url: /about/
+      - name: publications
+        url: /publications/
+      - name: projects
+        url: /projects/
+
+  socialIcons: # optional
+    # - name: "scholar"
+    #   url: "<link>"
+    - name: "github"
+      url: "https://github.com/plutonium-239"
+      
+
+# label:
+#   icon: 
