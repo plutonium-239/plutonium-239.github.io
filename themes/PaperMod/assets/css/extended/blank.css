@@ -50,7 +50,7 @@ body {
 
 @keyframes animateBg {
   to {
-    --angle: 360deg;
+    --angle: 360deg !important;
   }
 }
 
