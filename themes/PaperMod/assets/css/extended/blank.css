@@ -46,7 +46,8 @@ body {
   border-image-width: 7px;
   border-image-source: linear-gradient(var(--angle), #fca3ff, #f07) !important;
   animation: animateBg 3.5s linear infinite;
-} 
+}
+
 @keyframes animateBg {
   to {
     --angle: 360deg;
