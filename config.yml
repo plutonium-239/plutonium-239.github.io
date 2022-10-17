@@ -16,9 +16,14 @@ menu:
       name: projects
       url: /projects/
       weight: 3
+    - identifier: other_stuff
+      name: other stuff
+      url: /other_stuff/
+      weight: 4
 
 
 params:
+  env: production
   defaultTheme: dark
   ShowBreadCrumbs: true
   descripion: "All my projects, publications, etc. are listed on this sweet website."
@@ -41,13 +46,20 @@ params:
         url: /publications/
       - name: projects
         url: /projects/
+      - name: other stuff
+        url: /other_stuff/
 
   socialIcons: # optional
     # - name: "scholar"
     #   url: "<link>"
     - name: "github"
       url: "https://github.com/plutonium-239"
-      
+    - name: "googlescholar"
+      url: "https://scholar.google.com"
 
-# label:
-#   icon: 
+  assets:
+    favicon: /bmth+av_round.png
+
+  analytics:
+    google:
+      SiteVerificationTag: m8D5EaRXMmbmTIrarfEuOk3y54T12n_B7OD5D9k-fR4
