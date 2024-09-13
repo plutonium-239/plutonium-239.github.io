@@ -4,6 +4,10 @@ This is just a placeholder blank stylesheet so as to support adding custom style
 Read https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#bundling-custom-css-with-themes-assets for more info
 */
 
+:root {
+  --accentColor: #f07;
+  --grad-border-width: 7px;
+}
 
 @property --angle {
   syntax: "<angle>";
@@ -12,38 +16,71 @@ Read https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#bundling-custom-cs
 }
 
 header.header {
-    top: 0;
-    height: var(--header-height);
-    z-index: 1020;
-    position: sticky;
-    box-shadow: 0 3px 4px rgb(0 0 0 / 20%);
-}
+  top: 0;
+  height: var(--header-height);
+  z-index: 3;
+  position: sticky;
+  box-shadow: 0 3px 4px rgb(0 0 0 / 20%);
+  margin: 0 var(--grad-border-width);
+/*   margin-bottom: unset; */
+  background-color: var(--theme);
 
-body {
-    transition: background-color 0.6s;
 }
 
 ::-webkit-scrollbar-track-piece {
-    background-color: var(--theme);/*
-    -webkit-box-shadow: inset 0 0 0 rgba(0, 0, 0, 0) !important;
-    border-radius: 0 !important;
-    border: none !important;*/
+/*   background-color: var(--theme); */
+  
+/*     -webkit-box-shadow: inset 0 0 0 rgba(0, 0, 0, 0) !important; */
+/*     border-radius: 0 !important; */
+/*     border: none !important; */
 }
-/*::-webkit-scrollbar-thumb {
-    background-color: #ff84ac; !important;
-}*/
+
+::-webkit-scrollbar {
+  width: 17px !important;
+}
+
+::-webkit-scrollbar-thumb {
+/*   transition: border-width 0.5s linear; */
+  border-left: none;
+/*   padding-right: 7px; */
+  border-right: 10px solid rgba(0, 0, 0, 0.01);
+  border-top: 7px solid transparent;
+  border-bottom: 17px solid transparent;
+/*   border-width: 7px 7px 7px 3px; */
+  border-radius: 2px;
+  background-color: hsl(from var(--accentColor) h s l / 30% );
+}
 ::-webkit-scrollbar-thumb:hover {
-    background-color: #f07 !important;
+/*   border-width: 7px 7px 7px 0; */
+/*   border-width: none; */
+  background-color: var(--accentColor);
 }
 
 .footer {
   line-height: 1.6 !important;
 }
 
-body { 
-  border: 2px solid;
+html {
+  overflow-y: hidden;
+}
+
+body {
+  transition: background-color 0.6s;
+  height: 100vh;
+  overflow-y: auto;
+  font-family: 'Readex Pro Deca', sans-serif;
+  margin-top: var(--grad-border-width);
+}
+
+body::before {
+  z-index: 3;
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border: var(--grad-border-width) solid;
   border-image-slice: 1;
-  border-image-width: 7px;
+  border-image-width: var(--grad-border-width);
   border-image-source: linear-gradient(var(--angle), #fca3ff, #f07) !important;
   animation: animateBg 3.5s linear infinite;
 }
@@ -57,4 +94,111 @@ body {
 .button:hover {
   background: #ff84acca;
   transition: background 0.25s;
+}
+
+
+article.post-single {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & figure.entry-cover {
+    width: max(75vw, 100%);
+  }
+}
+
+header.post-header {
+  width: 100%;
+  text-align: center;
+  overflow-x: hidden;
+}
+.post-title {
+  display: inline-block;
+  position: relative;
+}
+.post-title::before,
+.post-title::after {
+  content: "";
+  position: absolute;
+  height: 5px;
+  border-top: 1px solid;
+  top: 50%;
+  width: 50vw;
+  margin: 0 20px;
+}
+.post-title::before {
+  right: 100%;
+}
+.post-title::after {
+  left: 100%;
+}
+
+main.main {
+  min-height: calc(100vh - var(--header-height) - var(--footer-height) - var(--grad-border-width));
+}
+
+.post-content a {
+  box-shadow: 0 1px var(--accentColor);
+
+  & :hover {
+    box-shadow: 0 2px var(--accentColor);
+  }
+}
+
+.post-content .social-icons a:not([data-text]) {
+  box-shadow: none;
+
+  & :hover {
+    box-shadow: 0 1px var(--accentColor);
+  }
+}
+
+.post-content .social-icons a[data-text] {
+  align-items: center;
+  font-size: smaller;
+  gap: 0.5em;
+  padding: 5px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  box-shadow: 0 1px var(--accentColor);
+
+  & :hover {
+    box-shadow: 0 2px var(--accentColor);
+  }
+}
+
+/*:not(:has(.social-icons))*/
+.post-content p {
+  text-align: justify;
+}
+
+/* .post-content p .social-icons[align="center"] {
+  position: relative;
+  left: 50%;
+} */
+
+.post-content p:has(.social-icons) {
+  text-wrap: pretty;
+  text-align: center;
+}
+
+.post-content h1, .post-header h1, .post-content h2, .post-content h3 {
+  color: var(--accentColor);
+}
+
+.entry-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  & .post-tags {
+    display: inline-flex;
+    z-index: 2;
+    flex: 1;
+    justify-content: flex-end;
+  }
+}
+
+.post-meta .post-tags {
+  display: none;
 }

@@ -12,10 +12,19 @@
 {{- $scratch.Add "meta" (slice (i18n "words" .WordCount | default (printf "%d words" .WordCount))) }}
 {{- end }}
 
+{{- if not (.Param "hideAuthor") -}}
 {{- with (partial "author.html" .) }}
 {{- $scratch.Add "meta" (slice .) }}
 {{- end }}
+{{- end }}
 
 {{- with ($scratch.Get "meta") }}
-{{- delimit . "&nbsp;·&nbsp;" -}}
+{{- delimit . "&nbsp;·&nbsp;" | safeHTML -}}
 {{- end -}}
+
+{{- $tags := .Language.Params.Taxonomies.tag | default "tags" }}
+<ul class="post-tags">
+  {{- range ($.GetTerms $tags) }}
+  <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+  {{- end }}
+</ul>

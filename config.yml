@@ -28,6 +28,7 @@ params:
   ShowBreadCrumbs: true
   descripion: "All my projects, publications, etc. are listed on this sweet website."
   # disableAnchoredHeadings: true
+  images: ["https://plutonium-239.github.io/bmth+av.png"]
   label:
     icon: /bmth+av.png
     iconHeight: 40
@@ -55,7 +56,7 @@ params:
     - name: "github"
       url: "https://github.com/plutonium-239"
     - name: "googlescholar"
-      url: "https://scholar.google.com"
+      url: "https://scholar.google.com/citations?hl=en&user=fUth5o4AAAAJ&view_op=list_works&sortby=pubdate"
 
   assets:
     favicon: /bmth+av_round.png

@@ -1,0 +1,12 @@
+{{ $icon_name := .Get "name" }}
+{{ $url := .Get "url" }}
+{{ $align := .Get "align" }}
+{{ $text := .Get "text" }}
+
+<span class="social-icons" {{ with $align }} align="{{.}}" {{- end }}>
+	<a href="{{ trim $url " " | safeURL }}" target="_blank" rel="noopener noreferrer me" 
+	title="{{ $icon_name | title }}" {{ with $text}} data-text {{- end }} >
+        {{ partial "svg.html" (dict "name" $icon_name) }}
+		{{- with $text }}{{.}}{{ end -}}
+    </a>
+</span>
