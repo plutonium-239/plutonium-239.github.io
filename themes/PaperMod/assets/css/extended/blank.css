@@ -17,7 +17,7 @@ Read https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#bundling-custom-cs
 
 header.header {
   top: 0;
-  height: var(--header-height);
+/*   height: var(--header-height); */
   z-index: 3;
   position: sticky;
   box-shadow: 0 3px 4px rgb(0 0 0 / 20%);
@@ -25,6 +25,26 @@ header.header {
 /*   margin-bottom: unset; */
   background-color: var(--theme);
 
+}
+
+nav.nav {
+  line-height: unset;
+  padding: 10px;
+  min-height: var(--header-height);
+}
+@media (max-width: 705px) {
+  nav.nav{
+    justify-content: center;
+  }
+}
+
+.logo, #menu {
+  margin: unset;
+  align-items: center;
+}
+
+.logo a img, .logo a svg {
+  transform: none;
 }
 
 ::-webkit-scrollbar-track-piece {
@@ -201,4 +221,37 @@ main.main {
 
 .post-meta .post-tags {
   display: none;
+}
+
+code {
+/*   margin: auto 4px; */
+  padding: 4px 6px;
+/*   font-size: .78em; */
+/*   line-height: 1.5; */
+  background: var(--code-bg);
+  border-radius: 2px;
+}
+
+.lang-badge {
+  font-size: small;
+  display: flex;
+  align-items: center;
+  gap: 0.25em;
+  white-space: nowrap;
+
+  & svg {
+    width: 24px;
+    height: 24px;
+  }
+
+}
+
+.breadcrumbs-lang-badge {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+img.lightbox {
+  cursor: pointer;
 }

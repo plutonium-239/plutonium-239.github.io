@@ -1,0 +1,8 @@
+{{ $lang_shortnames := dict "python" "python" "golang" "golang" "javascript" "js" "svelte" "sveltejs" }}
+
+{{ with .Param "lang" }}
+  <span class="lang-badge">
+    <span> {{- index $lang_shortnames . -}} </span>
+    {{ partial "svg.html" (dict "name" .) }}
+  </span>
+{{ end }}

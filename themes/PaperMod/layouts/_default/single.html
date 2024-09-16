@@ -2,7 +2,10 @@
 
 <article class="post-single">
   <header class="post-header">
-    {{ partial "breadcrumbs.html" . }}
+    <span class="breadcrumbs-lang-badge">
+      {{ partial "breadcrumbs.html" . }}
+      {{ partial "lang-badge.html" . }}
+    </span>
     <h1 class="post-title entry-hint-parent">
       {{ .Title | markdownify }}
       {{- if .Draft }}
@@ -16,7 +19,7 @@
     </h1>
     {{- if .Description }}
     <div class="post-description">
-      {{ .Description }}
+      {{ .Description | markdownify }}
     </div>
     {{- end }}
     {{- if not (.Param "hideMeta") }}

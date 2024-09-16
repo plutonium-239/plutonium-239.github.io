@@ -77,11 +77,12 @@
         </svg>
       </span>
       {{- end }}
+      {{- partial "lang-badge.html" . -}}
     </h2>
   </header>
   {{- if (ne (.Param "hideSummary") true) }}
   <div class="entry-content">
-    <p>{{ (.Description | default .Summary) | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
+    <p>{{- ((.Description | markdownify) | default (.Summary | plainify | htmlUnescape)) -}}{{ if .Truncated }}...{{ end }}</p>
   </div>
   {{- end }}
   {{- if not (.Param "hideMeta") }}
