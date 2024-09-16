@@ -4,7 +4,7 @@ description: "Lowering PyTorch's Memory Consumption for Selective Differentiatio
 date: 2024-06-18
 tags: ["optimization", "memory efficiency", "fine tuning", "CNNs"]
 cover:
-  image: memsave_torch_banner.svg
+  image: images/memsave_torch_banner.svg
   caption: Logo
   relative: true
 accent: "#00e1d2"
