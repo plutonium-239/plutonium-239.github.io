@@ -1,0 +1,9 @@
+{{ $url := .Get "src" }}
+{{ $text := .Get "name" }}
+
+<img 
+	loading="lazy" 
+	class="lightbox" 
+	src={{- trim $url " " | safeURL -}}
+	{{if $text}} title="{{ $text | htmlUnescape }}" {{else}} {{ end }} 
+/>
