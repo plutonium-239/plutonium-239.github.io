@@ -31,10 +31,10 @@ In torch these layers are implemented by `torch.nn.Conv2d`, `torch.nn.ReLU`, `to
 Here are summarized results on 4 models (plots from the poster):
 
 ### ResNet-101
-![ResNet-101](/poster_plot_resnet101.svg)
+{{< focusimage name="ResNet-101" src="images/poster_plot_resnet101.svg" >}}
 ### EfficientNet-v2-L
-![EfficientNet-v2-L](/poster_plot_efficientnet_v2_l.svg)
+{{< focusimage name="EfficientNet-v2-L" src="images/poster_plot_efficientnet_v2_l.svg" >}}
 ### T5
-![T5](/poster_plot_t5.svg)
+{{< focusimage name="T5" src="images/poster_plot_t5.svg" >}}
 ### Mistral-7B
-![Mistral-7B](/poster_plot_mistral-7b.svg)
+{{< focusimage name="Mistral-7B" src="images/poster_plot_mistral-7b.svg" >}}
