@@ -1,0 +1,11 @@
+{
+	"folders":
+	[
+		{
+			"path": "d:\\dead\\hugosites\\terminal"
+		}
+	],
+    "syntax_override": {
+        "\\.html$": ["Go", "HTML (Go)"]
+    }
+}
