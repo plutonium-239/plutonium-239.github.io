@@ -23,8 +23,8 @@ We address these challenges by integrating coarsening and modularity maximizatio
 The method is theoretically consistent under the Degree-Corrected Stochastic Block Model (DC-SBM), ensuring asymptotic error-free performance and complete label recovery. Our provably convergent and time-efficient algorithm seamlessly integrates with graph neural networks (GNNs) and variational graph autoencoders (VGAEs) to learn enhanced node features and deliver exceptional clustering performance. Extensive experiments on benchmark datasets demonstrate its superiority over existing state-of-the-art methods for both attributed and non-attributed graphs.
 
 $$
-\begin{align}
+\begin{align*}
   \mathcal{L}_{\text{MAGC}} =& \quad \textrm{tr}(\tilde{X}^TC^T\Theta C\tilde{X}) + \frac{\alpha}{2}\|C\tilde{X} -X\|_F^2 \\
   &- \frac{\beta}{2e}\textrm{tr}(C^TBC) - \gamma \log\det(C^T\Theta C + J)
-\end{align}
+\end{align*}
 $$
