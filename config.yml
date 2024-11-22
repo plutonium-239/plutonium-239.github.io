@@ -64,3 +64,19 @@ params:
   analytics:
     google:
       SiteVerificationTag: m8D5EaRXMmbmTIrarfEuOk3y54T12n_B7OD5D9k-fR4
+
+markup:
+  goldmark:
+    # Add math compatibility
+    extensions:
+      passthrough:
+        delimiters:
+          block:
+          - - \[
+            - \]
+          - - $$
+            - $$
+          inline:
+          - - \(
+            - \)
+        enable: true
