@@ -8,18 +8,23 @@ cover:
   relative: true
 ---
 
+{{< icon name="github" text="plutonium-239/clip_seg" url="https://github.com/plutonium-239/clip_seg" >}}
+{{< icon name="link" text="Presentation on Paper Summaries" url="/Language-based Semantic Segmentation - HackMD.pdf" >}}
+
+
 ## Zero-shot segmentation using large pre-trained language-image models like CLIP
 
 In this project, we explored language-driven zero-shot semantic segmentation using large pre-trained language-vision classification models like CLIP. 
 
 We made changes in the vision branch of CLIP, which includes architectures like ResNets and Vision Transformers (ViT) to be replaced with other segmentation based architectures like PSPNet, DeepLab, DPT. 
 
-We have used PSPNet along with CLIP's text transformer (frozen). This gives us a good starting point for results. However, with just this, the segmentation maps are blobby and the boundaries are not well-defined, though the classes are in their correct approximate locations. This is because the image encoder is tied to the text encoder's embeddings (semantically) because of training. We can resolve this by adding PSPNet without removing the CLIP image encoder and using CLIP's maps as pseudo-labels for training our segmentation model.
+We have used PSPNet along with CLIP's text transformer (frozen). This gives us a good starting point for results. However, with just this, the segmentation maps are blobby and the boundaries are not well-defined, though the classes are in their correct approximate locations. This is because the image encoder is coarse and is tied to the text encoder's embeddings (semantically) because of training. We can resolve this by adding PSPNet without removing the CLIP image encoder and using CLIP's maps as pseudo-labels for training our segmentation model.
 We are testing out methods to improve this.
 
 <!-- ![Overview](/clip_seg_overview.png) -->
 
-Summaries of some papers related to language-vision are available here: [pdf](paper-summaries.pdf), [web-view](https://hackmd.io/@pu239/language-based-seg)
+Summaries of some papers related to language-vision are available here: [pdf](/Language-based%20Semantic%20Segmentation%20-%20HackMD.pdf), [web-view](https://hackmd.io/@pu239/language-based-seg).
+
 The papers covered are:
 
 1. Open Vocabulary Scene Parsing [^1]
