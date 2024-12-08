@@ -57,6 +57,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var elements = document.querySelectorAll('.lightbox');
     elements.forEach(element => {
         var url = element.getAttribute('src');
+        // console.log(`URL: ${url}`)
         if(url) {
             if(is_youtubelink(url) && !element.classList.contains('no-lightbox')) {
                 element.classList.add('lightbox-youtube');
@@ -99,12 +100,15 @@ document.addEventListener("DOMContentLoaded", function() {
     //add the image lightbox on click
     var elements = document.querySelectorAll('.lightbox-image');
     elements.forEach(element => {
-        element.addEventListener("click", function(event) {
+        let clickHandler = element;
+        if (element.parentNode.tagName === "FIGURE")
+            clickHandler = element.parentElement 
+        clickHandler.addEventListener("click", function(event) {
             event.preventDefault();
-            document.getElementById('lightbox').innerHTML = '<a id="close"></a><a id="next">&rsaquo;</a><a id="prev">&lsaquo;</a><div class="img" title="'+this.getAttribute('title')+'" ><img src="'+this.getAttribute('src')+'" alt="'+this.getAttribute('title')+'" /></div><span>'+this.getAttribute('title')+'</span>';
+            let altText = element.getAttribute('alt');
+            document.getElementById('lightbox').innerHTML = '<a id="close"></a><a id="next">&rsaquo;</a><a id="prev">&lsaquo;</a><div class="img" title="'+element.getAttribute('title')+'" ><img src="'+element.getAttribute('src')+'" alt="'+element.getAttribute('alt')+'" /></div><span>'+`${element.getAttribute('title')} ${altText?` : ${altText}`:""}`+'</span>';
             document.getElementById('lightbox').style.display = 'block';
-
-            // setGallery(this);
+            // : REMOVED setGallery(this);
         });
     });
 
