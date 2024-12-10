@@ -1,1 +1,7 @@
 {{- template "_internal/alias.html" (dict "Permalink" .Params.target) -}}
+
+{{- $hitsURL := strings.TrimSuffix "/" (strings.TrimPrefix "https://" .Permalink) -}}
+
+<a href="https://hits.sh/{{- $hitsURL -}}/">
+	<img alt="Hits" src="https://hits.sh/{{- $hitsURL -}}.svg"/>
+</a>
